@@ -27,7 +27,7 @@ struct ContentView: View {
                 color: .green,
                 opacity: currentLight == .green ? 1 : 0.3)
             Spacer()
-            Button(action: { changeColor() }) {
+            Button(action: changeColor) {
                 Text(title)
                     .font(.title)
             }
@@ -35,10 +35,11 @@ struct ContentView: View {
         .padding()
     }
     private func changeColor() {
+        title = "Next"        
+        
         switch currentLight {
         case .off:
             currentLight = .red
-            title = "Next"
         case .red:
             currentLight = .yellow
         case .yellow:
